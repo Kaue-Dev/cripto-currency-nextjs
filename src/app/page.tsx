@@ -9,6 +9,10 @@ import { ICoin } from "@/interfaces/ICoin";
 // Icons
 import { Search } from "lucide-react";
 
+// Images
+import Image from "next/image";
+import Logo from "@/assets/images/logo.png"
+
 export default async function Page() {
 
   const baseUrl = process.env.API_BASE_URL;
@@ -26,7 +30,7 @@ export default async function Page() {
 
   return (
     <div className="max-w-7xl mx-auto py-8">
-      <h1 className="text-4xl mb-8">Cryptocurrency Quote</h1>
+      <Image src={Logo} alt="Crypto Currency" width={300} height={200} className="invert mb-8 select-none" />
 
       <div className="mb-8 py-2 px-4 bg-zinc-900 border border-zinc-800 flex items-center rounded-full w-full max-w-96">
         <input 
@@ -38,7 +42,8 @@ export default async function Page() {
       </div>
 
       <div className="flex flex-wrap gap-8 justify-start items-start">
-        {data.map((coin) => {
+        {data.length <= 0 && <span>No cryptocurrencies found.</span>}
+        {data.length > 0 && data.map((coin) => {
           return (
             <CriptoCard
               key={coin.id}
