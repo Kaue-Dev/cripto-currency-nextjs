@@ -1,23 +1,17 @@
-import Image from "next/image";
+"use server";
+
+// Components
+import { CriptoCard } from "@/components/cripto-card/cripto-card";
+
+// Interfaces
+import { ICoin } from "@/interfaces/ICoin";
 
 export default async function Page() {
 
   const baseUrl = process.env.API_BASE_URL;
   const apiKey = process.env.API_KEY;
 
-  interface ICoin {
-    id: string;
-    name: string;
-    image: string;
-    current_price: number;
-    market_cap: number;
-    market_cap_rank: number;
-    high_24h: number;
-    low_24h: number;
-    last_updated: string;
-  }
-
-  const coinsID = "bitcoin,ethereum";
+  const coinsID = "bitcoin,ethereum,tether,binancecoin,usd-coin,ripple,cardano,solana,dogecoin,polkadot,dai,shiba-inu,tron,uniswap,avalanche-2";
 
   const response = await fetch(`${baseUrl}coins/markets?vs_currency=usd&ids=${coinsID}&x_cg_demo_api_key=${apiKey}`);
 
@@ -28,15 +22,23 @@ export default async function Page() {
   const data: ICoin[] = await response.json();
 
   return (
-    <div>
-      {data.map((coin) => {
-        return (
-          <div key={coin.id}>
-            <Image src={coin.image} alt={coin.name} width={100} height={100} />
-            <div>{coin.name}</div>
-          </div>
-        )
-      })}
+    <div className="max-w-7xl mx-auto py-8">
+      <h1 className="text-4xl mb-8">Cryptocurrency Quote</h1>
+      <div className="flex flex-wrap gap-8 justify-start items-start">
+        {data.map((coin) => {
+          return (
+            <CriptoCard
+              key={coin.id}
+              id={coin.id}
+              symbol={coin.symbol}
+              name={coin.name}
+              image={coin.image}
+              current_price={coin.current_price}
+              price_change_24h={coin.price_change_24h}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }
