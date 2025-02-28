@@ -6,6 +6,9 @@ import { CriptoCard } from "@/components/cripto-card/cripto-card";
 // Interfaces
 import { ICoin } from "@/interfaces/ICoin";
 
+// Icons
+import { Search } from "lucide-react";
+
 export default async function Page() {
 
   const baseUrl = process.env.API_BASE_URL;
@@ -24,6 +27,16 @@ export default async function Page() {
   return (
     <div className="max-w-7xl mx-auto py-8">
       <h1 className="text-4xl mb-8">Cryptocurrency Quote</h1>
+
+      <div className="mb-8 py-2 px-4 bg-zinc-900 border border-zinc-800 flex items-center rounded-full w-full max-w-96">
+        <input 
+          type="text" 
+          className="w-full outline-0 text-base placeholder:text-zinc-600"
+          placeholder="Search for a cryptocurrency"
+        />
+        <Search size={20} className="text-zinc-600" />
+      </div>
+
       <div className="flex flex-wrap gap-8 justify-start items-start">
         {data.map((coin) => {
           return (
