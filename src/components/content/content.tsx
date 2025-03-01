@@ -10,7 +10,8 @@ interface ContentProps {
 }
 
 export function Content({ data }: ContentProps) {
-  const [search, setSearch] = useState<string>("");
+
+  const [searchValue, setSearchValue] = useState<string>("");
 
   return (
     <div>
@@ -19,13 +20,13 @@ export function Content({ data }: ContentProps) {
           type="text"
           className="w-full outline-0 text-base placeholder:text-zinc-600"
           placeholder="Search for a cryptocurrency"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
         />
         <Search size={20} className="text-zinc-600" />
       </div>
       
-      <CriptoList data={data} />
+      <CriptoList data={data} searchValue={searchValue} />
     </div>
   );
 }
