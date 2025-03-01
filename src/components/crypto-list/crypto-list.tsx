@@ -1,12 +1,12 @@
-import { CriptoCard } from "@/components/cripto-card/cripto-card";
+import { CryptoCard } from "@/components/crypto-card/crypto-card";
 import { TCoin } from "@/entities/TCoin";
 
-interface CriptoListProps {
+interface CryptoListProps {
   data: Array<TCoin>;
   searchValue: string;
 }
 
-export function CriptoList({ data, searchValue }: CriptoListProps) {
+export function CryptoList({ data, searchValue }: CryptoListProps) {
   return (
     <div className="flex flex-wrap gap-8 justify-start items-start">
       {data.length <= 0 && <span>No cryptocurrencies found.</span>}
@@ -15,7 +15,7 @@ export function CriptoList({ data, searchValue }: CriptoListProps) {
         .filter((coin) => coin.name.toLowerCase().includes(searchValue.toLowerCase()) || coin.symbol.toLowerCase().includes(searchValue.toLowerCase()))
         .map((coin) => {
           return (
-            <CriptoCard
+            <CryptoCard
               key={coin.id}
               id={coin.id}
               symbol={coin.symbol}

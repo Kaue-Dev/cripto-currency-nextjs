@@ -1,9 +1,9 @@
-interface CriptoNameProps {
+interface CryptoNameProps {
   name: string;
   symbol: string;
 }
 
-export function CriptoName (props: CriptoNameProps) {
+export function CryptoName (props: CryptoNameProps) {
   return (
     <div className="flex items-center justify-center gap-2">
       <h3 className="text-lg">{props.name}</h3>

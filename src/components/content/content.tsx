@@ -1,7 +1,7 @@
 "use client";
 
 import { Search } from "lucide-react";
-import { CriptoList } from "../cripto-list/cripto-list";
+import { CryptoList } from "../crypto-list/crypto-list";
 import { useState } from "react";
 import { TCoin } from "@/entities/TCoin";
 
@@ -26,7 +26,7 @@ export function Content({ data }: ContentProps) {
         <Search size={20} className="text-zinc-600" />
       </div>
       
-      <CriptoList data={data} searchValue={searchValue} />
+      <CryptoList data={data} searchValue={searchValue} />
     </div>
   );
 }
