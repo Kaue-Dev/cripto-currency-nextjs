@@ -1,7 +1,4 @@
-// Images
 import Image from "next/image";
-
-// Components
 import { FluctuationPercent } from "./fluctuation-percent";
 import { CriptoPrice } from "./cripto-price";
 import { CriptoName } from "./cripto-name";
