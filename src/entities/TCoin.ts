@@ -1,4 +1,4 @@
-export interface ICoin {
+export type TCoin = {
   id: string;
   symbol: string;
   name: string;
