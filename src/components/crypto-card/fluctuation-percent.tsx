@@ -14,7 +14,7 @@ export function FluctuationPercent (props: FluctuationPercentProps) {
     <div>
       {fluctuation > 0 ? (
         <span className="text-xs font-bold text-green-500 flex items-center gap-1">
-          {fluctuation.toFixed(2)}%
+          +{fluctuation.toFixed(2)}%
           <TrendingUp size={14} />
         </span>
       ) : (
