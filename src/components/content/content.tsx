@@ -14,14 +14,26 @@ export function Content({ data }: ContentProps) {
 
   const [searchValue, setSearchValue] = useState<string>("");
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [sortedData, setSortedData] = useState<Array<TCoin>>(data);
 
   return (
     <div>
       <div className="flex items-center gap-4 mb-8">
-        <SearchInput searchValue={searchValue} setSearchValue={setSearchValue} />
-        <SortSection isVisible={isVisible} setIsVisible={setIsVisible} />
+        <SearchInput 
+          searchValue={searchValue} 
+          setSearchValue={setSearchValue} 
+        />
+        <SortSection 
+          isVisible={isVisible} 
+          unsortedData={data} 
+          setIsVisible={setIsVisible} 
+          setSortedData={setSortedData} 
+        />
       </div>
-      <CryptoList data={data} searchValue={searchValue} />
+      <CryptoList 
+        data={sortedData} 
+        searchValue={searchValue}
+      />
     </div>
   );
 }
