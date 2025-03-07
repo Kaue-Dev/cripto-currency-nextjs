@@ -27,8 +27,8 @@ export function CryptoCard ({
       key={id} 
       className={
         gridLayout ? 
-        "p-4 dark-bg-border w-full max-w-56 flex flex-col items-center justify-center gap-4 rounded" : 
-        "p-4 dark-bg-border w-full flex items-center gap-8 rounded"
+        "p-4 bg-zinc-900 border border-zinc-800 w-full max-w-56 flex flex-col items-center justify-center gap-4 rounded" : 
+        "p-4 bg-zinc-900 border border-zinc-800 w-full flex items-center gap-8 rounded"
       }
     >
       <Image src={image} alt={name} width={32} height={32} />

@@ -6,6 +6,8 @@ import { TCoin } from "@/entities/TCoin";
 import { SearchInput } from "../search-input/search-input";
 import { SortButton } from "../sort-button/sort-button";
 import { ChangeLayout } from "../change-layout/change-layout";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 interface ContentProps {
   data: Array<TCoin>;
@@ -39,6 +41,13 @@ export function Content({ data }: ContentProps) {
           handleChangeLayout={handleChangeLayout} 
           gridLayout={gridLayout} 
         />
+        <Link 
+          href="/details"
+          className="bg-zinc-900 border border-zinc-800 py-2 px-4 rounded flex items-center gap-1 hover:bg-zinc-800"
+        >
+          Details
+          <ArrowUpRight size={16} />
+        </Link>
       </div>
       <CryptoList 
         data={sortedData} 

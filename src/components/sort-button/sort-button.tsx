@@ -30,7 +30,7 @@ export function SortButton({
   return (
     <div className="relative">
       <button 
-        className="p-2.5 dark-bg-border rounded cursor-pointer text-zinc-600 hover:bg-zinc-800"
+        className="p-2.5 bg-zinc-900 border border-zinc-800 rounded cursor-pointer text-zinc-600 hover:bg-zinc-800"
         onClick={() => setIsVisible(!isVisible)}
       >
         <SlidersHorizontal size={20} />

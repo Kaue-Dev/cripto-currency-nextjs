@@ -10,7 +10,7 @@ export function SearchInput({
   setSearchValue,
 }: SearchInputProps) {
   return (
-    <div className="py-2 px-4 dark-bg-border flex items-center rounded w-full max-w-96">
+    <div className="py-2 px-4 bg-zinc-900 border border-zinc-800 flex items-center rounded w-full max-w-96">
       <input
         type="text"
         className="w-full outline-0 text-base placeholder:text-zinc-600"
