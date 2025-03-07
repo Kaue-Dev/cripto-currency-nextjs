@@ -4,11 +4,17 @@ import { TCoin } from "@/entities/TCoin";
 interface CryptoListProps {
   data: Array<TCoin>;
   searchValue: string;
+  gridLayout: boolean;
 }
 
-export function CryptoList({ data, searchValue }: CryptoListProps) {
+export function CryptoList({ data, searchValue, gridLayout }: CryptoListProps) {
   return (
-    <div className="flex flex-wrap gap-8 justify-start items-start">
+    <div className={
+        gridLayout ?
+        "flex flex-wrap gap-8 justify-start items-start" :
+        "flex flex-col gap-4 justify-start items-start"
+      }
+    >
       {data.length <= 0 && <span>No cryptocurrencies found.</span>}
 
       {data.length > 0 && data
@@ -23,6 +29,7 @@ export function CryptoList({ data, searchValue }: CryptoListProps) {
               image={coin.image}
               current_price={coin.current_price}
               price_change_24h={coin.price_change_24h}
+              gridLayout={gridLayout}
             />
           );
         })}
