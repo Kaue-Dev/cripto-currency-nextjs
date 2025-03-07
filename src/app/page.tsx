@@ -8,7 +8,7 @@ export default async function Page() {
   const data = await fetchCoinsData()
 
   return (
-    <div className="w-full max-w-7xl mx-auto py-8">
+    <div className="w-full max-w-7xl mx-auto py-8 px-4">
       <Image
         src={Logo}
         alt="Crypto Currency"
