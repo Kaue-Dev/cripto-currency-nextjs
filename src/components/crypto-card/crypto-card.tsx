@@ -10,16 +10,32 @@ interface CryptoCardProps {
   image: string;
   current_price: number;
   price_change_24h: number;
+  gridLayout: boolean;
 }
 
-export function CryptoCard (props: CryptoCardProps) {
+export function CryptoCard ({
+  id,
+  symbol,
+  name,
+  image,
+  current_price,
+  price_change_24h,
+  gridLayout,
+}: CryptoCardProps) {
   return (
-    <div key={props.id} className="p-4 border border-zinc-800 bg-zinc-900 w-full max-w-56 flex flex-col items-center justify-center gap-4 rounded">
-      <Image src={props.image} alt={props.name} width={32} height={32} />
-      <CryptoName name={props.name} symbol={props.symbol} />
+    <div 
+      key={id} 
+      className={
+        gridLayout ? 
+        "p-4 border border-zinc-800 bg-zinc-900 w-full max-w-56 flex flex-col items-center justify-center gap-4 rounded" : 
+        "p-4 border border-zinc-800 bg-zinc-900 w-full flex items-center gap-8 rounded"
+      }
+    >
+      <Image src={image} alt={name} width={32} height={32} />
+      <CryptoName name={name} symbol={symbol} />
       <div className="w-full flex justify-between items-center">
-        <CryptoPrice current_price={props.current_price} />
-        <FluctuationPercent currentPrice={props.current_price} priceChange24h={props.price_change_24h} />
+        <CryptoPrice current_price={current_price} />
+        <FluctuationPercent currentPrice={current_price} priceChange24h={price_change_24h} />
       </div>
     </div>
   )
