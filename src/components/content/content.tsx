@@ -4,7 +4,7 @@ import { CryptoList } from "../crypto-list/crypto-list";
 import { useState } from "react";
 import { TCoin } from "@/entities/TCoin";
 import { SearchInput } from "../search-input/search-input";
-import { SortSection } from "../sort-section/sort-section";
+import { SortButton } from "../sort-button/sort-button";
 import { ChangeLayout } from "../change-layout/change-layout";
 
 interface ContentProps {
@@ -29,7 +29,7 @@ export function Content({ data }: ContentProps) {
           searchValue={searchValue} 
           setSearchValue={setSearchValue} 
         />
-        <SortSection 
+        <SortButton 
           isVisible={isVisible} 
           unsortedData={data} 
           setIsVisible={setIsVisible} 

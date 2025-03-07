@@ -3,19 +3,19 @@ import { SortOption } from "./sort-option";
 import { TCoin } from "@/entities/TCoin";
 import { SortOptionsList } from "./sort-options-list";
 
-interface SortSectionProps {
+interface SortButtonProps {
   isVisible: boolean;
   unsortedData: Array<TCoin>;
   setIsVisible: (isVisible: boolean) => void;
   setSortedData: (data: Array<TCoin>) => void;
 }
 
-export function SortSection({
+export function SortButton({
   isVisible,
   unsortedData,
   setIsVisible,
   setSortedData,
-}: SortSectionProps) {
+}: SortButtonProps) {
 
   function sortByName() {
     setSortedData([...unsortedData].sort((a, b) => a.name.localeCompare(b.name)));
