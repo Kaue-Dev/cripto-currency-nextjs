@@ -1,21 +1,15 @@
 "use client";
 
 import { CartesianGrid, LabelList, Line, LineChart, XAxis } from "recharts";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/app/details/components/ui/card";
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/app/details/components/ui/chart";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/app/details/components/ui/card";
-
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/app/details/components/ui/chart";
+const chartConfig = {
+  desktop: {
+    label: "Desktop",
+    color: "var(--chart-1)",
+  },
+} satisfies ChartConfig;
 
 const chartData = [
   { month: "January", desktop: 186 },
@@ -26,16 +20,9 @@ const chartData = [
   { month: "June", desktop: 214 },
 ];
 
-const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "red",
-  },
-} satisfies ChartConfig;
-
 export function ChartComponent() {
   return (
-    <Card>
+    <Card className="dark">
       <CardHeader>
         <CardTitle>Line Chart</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
@@ -68,7 +55,7 @@ export function ChartComponent() {
             >
               <LabelList
                 position="top"
-                offset={12}
+                offset={16}
                 className="fill-foreground"
               />
             </Line>
