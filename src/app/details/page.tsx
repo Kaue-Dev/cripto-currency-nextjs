@@ -1,7 +1,9 @@
-export default function DetailsPage() {
+import { ChartComponent } from "./components/chart-component";
+
+export default function Details() {
   return (
-    <div>
-      <h1>Details Page</h1>
+    <div className="w-full max-w-3xl mx-auto">
+      <ChartComponent />
     </div>
-  );
+  )
 }
